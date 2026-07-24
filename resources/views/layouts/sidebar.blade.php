@@ -70,11 +70,6 @@
             Dashboard Customer
         </a>
 
-        <a href="{{ route('orders.index') }}"
-           class="list-group-item list-group-item-action">
-            Buat Pesanan
-        </a>
-
         @endif
 
     </div>

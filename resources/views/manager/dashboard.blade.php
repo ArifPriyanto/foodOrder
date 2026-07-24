@@ -1,13 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="alert alert-success">
-    Bootstrap Berhasil
-</div>
-
-<button class="btn btn-primary">
-    Tes Bootstrap
-</button>
 
 <div class="container-fluid">
 
@@ -16,10 +9,6 @@
     <div class="alert alert-success m-3">
     Bootstrap Berhasil
 </div>
-
-<button class="btn btn-primary m-3">
-    Tombol Bootstrap
-</button>
 
         <div class="col-md-4">
             <div class="card shadow border-0 bg-primary text-white">

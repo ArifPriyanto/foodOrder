@@ -11,13 +11,6 @@ use Illuminate\Support\Facades\DB;
 
 class OrderController extends Controller
 {
-    public function index()
-    {
-        $menus = Menu::where('stock', '>', 0)->get();
-
-        return view('orders.index', compact('menus'));
-    }
-
     public function store(Request $request)
     {
         $validated = $request->validate([
@@ -48,7 +41,7 @@ class OrderController extends Controller
             $menu->decrement('stock', $validated['qty']);
         });
 
-        return redirect()->route('orders.index')
+        return redirect()->route('customer.dashboard')
             ->with('success', 'Pesanan berhasil dibuat.');
     }
 }

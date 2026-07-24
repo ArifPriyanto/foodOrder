@@ -33,7 +33,12 @@ class DashboardController extends Controller
 
     public function cashier()
     {
-        return view('cashier.dashboard');
+         $orders = Order::with(['customer', 'items.menu'])
+        ->whereIn('status', ['pending', 'diproses'])
+        ->latest()
+        ->get();
+
+    return view('cashier.orders', compact('orders'));
     }
 
     public function driver()
@@ -55,7 +60,9 @@ class DashboardController extends Controller
 
     public function customer()
     {
-        return view('customer.dashboard');
+        $menus = Menu::where('stock', '>', 0)->get();
+
+         return view('customer.dashboard', compact('menus'));
     }
 
     public function index()

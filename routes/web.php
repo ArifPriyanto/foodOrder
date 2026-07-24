@@ -61,11 +61,12 @@ Route::middleware(['auth', 'role:manager'])->group(function () {
 // CUSTOMER
 Route::middleware(['auth','role:customer'])->prefix('customer')->group(function () {
 
+   
     Route::get('/dashboard', [DashboardController::class, 'customer'])
         ->name('customer.dashboard');
 
-    Route::resource('orders', CustomerOrderController::class)
-        ->only(['index', 'store']);
+    Route::post('/orders', [CustomerOrderController::class, 'store'])
+        ->name('customer.orders.store');
 
 });
 
